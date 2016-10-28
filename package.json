@@ -1,0 +1,29 @@
+{
+  "name": "epic.app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start" : "NODE_ENV=production && node index",
+    "dev" : "NODE_ENV=development && node index",
+    "debug" : "NODE_ENV=development && debug=* && node index",
+
+    "startwin" : "set NODE_ENV=production node index",
+    "devwin" : "set NODE_ENV=development && node index",
+    "debugwin" : "set NODE_ENV=development && debug=* && node index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "S",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "*",
+    "co": "*",
+    "koa-compose": "*"
+  },
+  "devDependencies": {
+    "koa": "next",
+    "socket.io": "*",
+    "mocha": "*",
+    "chai": "*"
+  }
+}
