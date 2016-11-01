@@ -24,6 +24,10 @@ class Runner {
 
 	}
 
+	adapter (...fns) {
+		fns.forEach(e => e(this));
+	}
+
 	on (...args) {
 		this.server.on(...args);
 	}
@@ -37,8 +41,8 @@ class Runner {
 	  return this;
 	}
 
-	onerror (...args) {
-		console.error('err:', ...args);
+	onerror (args) {
+		console.error('app err:', args.stack);
 	}
 
 }
@@ -58,7 +62,6 @@ class KoaRunner extends Runner {
 		})
 		.then(e => this.address = http.address())
 		.then(e => {
-			this.emit('start', e);
 			return fn ? fn(e) : e;
 		})
 		.catch(this.onerror);
@@ -82,7 +85,7 @@ class SocketIORunner extends Runner {
 		})
 		.then(e => this.address = this.server.httpServer.address())
 		.then(e => {
-			this.emit('start', e);
+			//this.emit('start', e);
 			return fn ? fn(e) : e;
 		})
 		.catch(this.onerror);
