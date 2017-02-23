@@ -12,7 +12,6 @@ module.exports = server => server.constructor.name === 'Server' ? new SocketIORu
 class Runner {
 
 	constructor (server) {
-
 		this.env = process.env.NODE_ENV || 'development';
 		this.server = server;
 
